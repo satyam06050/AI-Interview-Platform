@@ -35,6 +35,19 @@ uploads_dir.mkdir(exist_ok=True)
 app.mount("/uploads", StaticFiles(directory="uploads"), name="uploads")
 
 
+# ─── Root ────────────────────────────────────────────────────────────────────
+@app.get("/", tags=["root"])
+async def root():
+    return {
+        "name": "AI Interview Platform API",
+        "version": "1.0.0",
+        "status": "running",
+        "docs": "/docs" if settings.APP_ENV == "development" else None,
+        "health": "/health",
+        "api_base": "/api/v1"
+    }
+
+
 # ─── Health check ─────────────────────────────────────────────────────────────
 @app.get("/health", tags=["health"])
 async def health():

@@ -20,7 +20,7 @@ class Settings(BaseSettings):
     MAX_QUESTIONS_PER_INTERVIEW: int = 6
 
     class Config:
-        env_file = ".env"
+        env_file = ".env.local"
         extra = "ignore"
 
     @property
