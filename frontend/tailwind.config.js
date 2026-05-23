@@ -15,6 +15,7 @@ module.exports = {
       fontFamily: {
         serif: ["var(--font-fraunces)", "Georgia", "serif"],
         sans: ["var(--font-inter)", "system-ui", "sans-serif"],
+        playfair: ["var(--font-playfair)", "Georgia", "serif"],
       },
       borderRadius: {
         "2xl": "16px",
