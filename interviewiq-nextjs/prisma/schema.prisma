@@ -1,0 +1,52 @@
+// prisma/schema.prisma
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id         String      @id @default(cuid())
+  name       String
+  email      String      @unique
+  credits    Int         @default(100)
+  createdAt  DateTime    @default(now())
+  updatedAt  DateTime    @updatedAt
+  interviews Interview[]
+  payments   Payment[]
+}
+
+model Interview {
+  id               String     @id @default(cuid())
+  userId           String
+  user             User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  role             String
+  experience       String
+  mode             String     @default("Technical")
+  status           String     @default("ongoing")   // ongoing | completed
+  finalScore       Float?
+  confidence       Float?
+  communication    Float?
+  correctness      Float?
+  questions        Json       // array of question objects
+  answers          Json       @default("[]")         // array of answer objects
+  questionWiseScore Json      @default("[]")         // array of {question, score, feedback}
+  createdAt        DateTime   @default(now())
+  updatedAt        DateTime   @updatedAt
+}
+
+model Payment {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  planId    String
+  amount    Int
+  credits   Int
+  orderId   String   @unique
+  paymentId String?
+  status    String   @default("pending")  // pending | success | failed
+  createdAt DateTime @default(now())
+}
