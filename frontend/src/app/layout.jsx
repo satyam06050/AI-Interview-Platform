@@ -1,3 +1,4 @@
+import {ClerkProvider} from "@clerk/nextjs";
 // src/app/layout.jsx
 import "./globals.css";
 import Providers from "@/components/Providers";
@@ -12,12 +13,14 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        {/* Razorpay checkout script */}
-        <Script
+        <ClerkProvider>
+          {/* Razorpay checkout script */}
+          <Script
           src="https://checkout.razorpay.com/v1/checkout.js"
           strategy="lazyOnload"
-        />
-        <Providers>{children}</Providers>
+          />
+          <Providers>{children}</Providers>
+        </ClerkProvider>
       </body>
     </html>
   );

@@ -13,35 +13,36 @@
     "db:studio": "prisma studio"
   },
   "dependencies": {
+    "@clerk/nextjs": "^7.4.2",
     "@prisma/client": "^5.22.0",
     "@reduxjs/toolkit": "^2.3.0",
     "axios": "^1.7.9",
+    "crypto": "^1.0.1",
     "firebase": "^11.0.1",
     "framer-motion": "^11.12.0",
     "iron-session": "^8.0.4",
     "jspdf": "^2.5.2",
     "jspdf-autotable": "^3.8.4",
     "multer": "^1.4.5-lts.1",
-    "next": "15.1.0",
+    "next": "^16.2.6",
     "pdf-parse": "^1.1.1",
+    "razorpay": "^2.9.5",
     "react": "^19.0.0",
     "react-circular-progressbar": "^2.1.0",
     "react-dom": "^19.0.0",
     "react-icons": "^5.3.0",
     "react-redux": "^9.1.2",
-    "recharts": "^2.13.3",
-    "razorpay": "^2.9.5",
-    "crypto": "^1.0.1"
+    "recharts": "^2.13.3"
   },
   "devDependencies": {
     "@types/node": "^22.0.0",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
+    "autoprefixer": "^10.4.20",
     "eslint": "^9.0.0",
     "eslint-config-next": "15.1.0",
+    "postcss": "^8.4.49",
     "prisma": "^5.22.0",
-    "tailwindcss": "^3.4.17",
-    "autoprefixer": "^10.4.20",
-    "postcss": "^8.4.49"
+    "tailwindcss": "^3.4.17"
   }
 }
